@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Indie 2022 - Vlog Casha</title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="https://yt3.googleusercontent.com/ytc/AGIKgqNjMTErUO9AYJmIG2fnKmB1XgBBJ3iNgBR5S3Nhig=s176-c-k-c0x00ffffff-no-rj" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		html, body, #map {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="map"></div>
+
+<script>
+
+	var map = L.map('map').setView([25.45319, 76.90429], 6);
+
+	var OSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	
+	map.on('click', function (e) {
+		console.log(e.latlng.lng.toFixed(5) + ',', e.latlng.lat.toFixed(5));
+	});
+
+</script>
+
+</body>
+</html>
