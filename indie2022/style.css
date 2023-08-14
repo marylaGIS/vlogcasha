@@ -1,0 +1,17 @@
+.cash-socials {
+	position: absolute;
+	bottom: 1%;
+	left: 1%;
+	z-index: 1000;
+}
+
+.cash-socials > a {
+	font-size: 18px;
+	color: black;
+	hover: dodgerblue;
+	margin-left: 10px;
+}
+
+.cash-socials > a:hover {
+	color: dodgerblue;
+}
