@@ -57,7 +57,23 @@
 		console.log(e.latlng.lng.toFixed(5) + ',', e.latlng.lat.toFixed(5));
 	});
 	
-	var points = L.geoJSON(indie2022points).addTo(map);
+	
+	function style_points() {
+		return {
+			radius: 5.0,
+			color: 'black',
+			weight: 2,
+			opacity: 0.8,
+			fillColor: 'white',
+			fillOpacity: 1.0
+		}
+	};
+	
+	var points = L.geoJSON(indie2022points, {
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, style_points(feature))
+		}
+	}).addTo(map);
 
 </script>
 
