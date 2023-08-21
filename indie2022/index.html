@@ -74,6 +74,17 @@
 			return L.circleMarker(latlng, style_points(feature))
 		}
 	}).addTo(map);
+	
+	
+	var baseLayers = {
+		"OpenStreetMap": OSM
+	};
+	
+	var overlays = {
+		"punkty": points
+	};
+	
+	L.control.layers(baseLayers, overlays).addTo(map);
 
 </script>
 
