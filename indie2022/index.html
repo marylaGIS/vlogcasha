@@ -76,7 +76,7 @@
 			line_points.push(latlng);
 			return L.circleMarker(latlng, style_points(feature))
 		}
-	}).addTo(map);
+	})//.addTo(map);
 	
 	var lines = L.layerGroup().addTo(map);
 	
@@ -88,14 +88,17 @@
 		})
 		lines.addLayer(line);
 	};
-		
+	
+	
+	points.addTo(map);  // last to add, first to see
 	
 	var baseLayers = {
 		"OpenStreetMap": OSM
 	};
 	
 	var overlays = {
-		"punkty": points
+		"punkty": points,
+		"linie": lines
 	};
 	
 	L.control.layers(baseLayers, overlays).addTo(map);
