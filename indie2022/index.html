@@ -69,9 +69,19 @@
 		}
 	};
 	
+	function onEachFeature(feature, layer) {
+		layer.bindPopup("<strong>YouTube: </strong>" + 
+		"<a href=" + feature.properties["link"] + 
+		" target='_blank'>vlog " + feature.properties["vlog_nr"] + "</a>" + 
+		"<br>" + "<strong>Obiekt: </strong>" + 
+		feature.properties["obiekt"] + "<br>" + "<strong>Data: </strong>" + 
+		feature.properties["data"]);
+	};
+	
 	var line_points = [];
 	
 	var points = L.geoJSON(indie2022points, {
+		onEachFeature: onEachFeature,
 		pointToLayer: function (feature, latlng) {
 			line_points.push(latlng);
 			return L.circleMarker(latlng, style_points(feature))
