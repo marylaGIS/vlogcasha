@@ -95,7 +95,7 @@
 		c = 'rgb(' + r +','+g+','+b+')'
 		var line = L.polyline([line_points[i], line_points[i+1]], {
 			color: c
-		})
+		}).bindPopup((i+1).toString())
 		lines.addLayer(line);
 	};
 	
