@@ -14,6 +14,9 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	
+	<link rel="stylesheet" href="leaflet-sidepanel.css" />
+	<script src="leaflet-sidepanel.min.js"></script>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="style.css" />
@@ -39,6 +42,30 @@
 			<a href="https://www.facebook.com/vlogcasha" target="_blank"><i class="fa fa-facebook-official"></i></a>
 			<a href="https://www.instagram.com/vlogcasha/" target="_blank"><i class="fa fa-instagram"></i></a>
 			<a href="https://patronite.pl/Vlogcasha" target="_blank"><i class="fa fa-fire"></i></a>
+		</div>
+		
+		<div id="sidepanel" class="sidepanel" aria-label="side panel" aria-hidden="false">
+			<div class="sidepanel-inner-wrapper">
+				<nav class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
+				<ul class="sidepanel-tabs" id="sidepanel-tabs">
+					<li class="sidepanel-tab">
+						<a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1">
+							tab
+						</a>
+					</li>
+				</ul>
+				</nav>
+				<div class="sidepanel-content-wrapper">
+					<div class="sidepanel-content" id="sidepanel-content">
+					</div>
+						<div class="sidepanel-tab-content" data-tab-content="tab-1" id="panel">
+							content
+						</div>
+				</div>
+			</div>
+			<div class="sidepanel-toggle-container">
+				<button class="sidepanel-toggle-button" type="button" aria-label="toggle side panel"></button>
+			</div>
 		</div>
 	
 	</div>
@@ -112,6 +139,12 @@
 	};
 	
 	L.control.layers(baseLayers, overlays).addTo(map);
+	
+	
+	const sidepanel = L.control.sidepanel('sidepanel', {
+		tabsPosition: 'left',
+		startTab: 'tab-1'
+	}).addTo(map);
 
 </script>
 
