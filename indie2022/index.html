@@ -50,7 +50,9 @@
 				<ul class="sidepanel-tabs" id="sidepanel-tabs">
 					<li class="sidepanel-tab">
 						<a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1">
-							tab
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+								<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+							</svg>
 						</a>
 					</li>
 				</ul>
@@ -58,8 +60,8 @@
 				<div class="sidepanel-content-wrapper">
 					<div class="sidepanel-content" id="sidepanel-content">
 					</div>
-						<div class="sidepanel-tab-content" data-tab-content="tab-1" id="panel">
-							content
+						<div class="sidepanel-tab-content" data-tab-content="tab-1" id="panel-vlogs-attractions">
+							<h3>Lista vlogów i odwiedzonych miejsc</h3>
 						</div>
 				</div>
 			</div>
@@ -145,6 +147,22 @@
 		tabsPosition: 'left',
 		startTab: 'tab-1'
 	}).addTo(map);
+	
+	for (let i=1; i<=19; i++) {
+		const ul = document.createElement("ul");
+		ul.setAttribute("id", "list-vlogs-attractions");
+		
+		const li = document.createElement("li");
+		li.setAttribute("class", "li-vlog-attractions");
+		
+		const btn = document.createElement("button");
+		btn.setAttribute("id", "btn-"+i);
+		btn.innerText = "VLOG " + i;
+		
+		li.appendChild(btn);
+				
+		document.getElementById("panel-vlogs-attractions").appendChild(li);
+	};
 
 </script>
 
