@@ -73,6 +73,7 @@
 						
 						<div class="sidepanel-tab-content" data-tab-content="tab-3" id="panel-vlogs-attractions">
 							<h3>Lista vlogów</h3>
+							<ol id="list-vlogs-yt"></ol>
 						</div>
 					</div>
 				</div>
@@ -160,6 +161,7 @@
 		startTab: 'tab-1'
 	}).addTo(map);
 	
+	// tab-1
 	for (let i=1; i<=19; i++) {
 		const ul = document.createElement("ul");
 		ul.setAttribute("id", "list-vlogs-attractions");
@@ -175,7 +177,25 @@
 				
 		document.getElementById("panel-vlogs-attractions").appendChild(li);
 	};
-
+	
+	// tab-3
+	const vlogsLinksSet = new Set();
+	
+	for (let i=0; i<indie2022points.features.length; i++) {
+		vlogsLinksSet.add(indie2022points.features[i].properties["link"]);
+	};
+	
+	const ol = document.getElementById("list-vlogs-yt");  // list created inside sidepanel tab above
+	
+	vlogsLinksSet.forEach( el => {
+		const li = document.createElement("li");
+		const iframe = document.createElement("iframe");
+		iframe.classList.add("vlog-yt");
+		iframe.setAttribute("src", el.replace("watch?v=", "embed/"));
+		li.appendChild(iframe);
+		ol.appendChild(li);
+	});
+	
 </script>
 
 </body>
