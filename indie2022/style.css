@@ -15,3 +15,12 @@
 .cash-socials > a:hover {
 	color: dodgerblue;
 }
+
+ol#list-vlogs-yt > li {
+	padding-right: 10%;
+	margin-top: 10%;
+}
+
+.vlog-yt {
+	width: 100%;
+}
