@@ -81,6 +81,14 @@
 						
 						<div class="sidepanel-tab-content" data-tab-content="tab-2" id="panel-vlogs-attractions">
 							<h3>Atrakcje według kategorii</h3>
+							<ul id="miejsce" class="list-attractions">Miejsca</ul>
+							<ul id="swiatynia" class="list-attractions">Świątynie</ul>
+							<ul id="architektura" class="list-attractions">Architektura</ul>
+							<ul id="fort" class="list-attractions">Forty</ul>
+							<ul id="park" class="list-attractions">Parki</ul>
+							<ul id="nocleg" class="list-attractions">Noclegi</ul>
+							<ul id="restauracja" class="list-attractions">Restauracje</ul>
+							<ul id="rozne" class="list-attractions">Różne</ul>
 						</div>
 						
 						<div class="sidepanel-tab-content" data-tab-content="tab-3" id="panel-vlogs-attractions">
@@ -189,6 +197,13 @@
 				
 		document.getElementById("panel-vlogs-attractions").appendChild(li);
 	};
+	
+	const cats = new Set();
+	
+	for (let i=0; i<indie2022points.features.length; i++) {
+		cats.add(indie2022points.features[i].properties["kategoria"]);
+	};
+	console.log(cats);
 	
 	// tab-3
 	const vlogsLinksSet = new Set();
