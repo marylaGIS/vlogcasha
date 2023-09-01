@@ -198,49 +198,23 @@
 		document.getElementById("panel-vlogs-attractions").appendChild(li);
 	};
 	
-	// tab-2	
+	// tab-2
+	const categoriesSet = new Set();
+	
 	for (let i in indie2022points.features) {
-		if (indie2022points.features[i].properties["kategoria"] == "miejsce") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("miejsce");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "swiatynia") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("swiatynia");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "architektura") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("architektura");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "fort") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("fort");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "park") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("park");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "nocleg") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("nocleg");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "restauracja") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("restauracja");
-			ul.appendChild(li);
-		} else if (indie2022points.features[i].properties["kategoria"] == "rozne") {
-			const li = document.createElement("li");
-			li.innerText = indie2022points.features[i].properties["obiekt"];
-			ul = document.getElementById("rozne");
-			ul.appendChild(li);
-		}
+		categoriesSet.add(indie2022points.features[i].properties["kategoria"]);
+	};
+	
+	for (let i in indie2022points.features) {
+		categoriesSet.forEach( el => {
+			if (indie2022points.features[i].properties["kategoria"] == el) {
+				const li = document.createElement("li");
+				li.innerText = indie2022points.features[i].properties["obiekt"];
+				ul = document.getElementById(el);
+				ul.appendChild(li);
+				};
+			}
+		)
 	};
 	
 	// tab-3
