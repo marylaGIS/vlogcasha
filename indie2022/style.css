@@ -24,3 +24,8 @@ ol#list-vlogs-yt > li {
 .vlog-yt {
 	width: 100%;
 }
+
+.fa-map-marker {
+	margin-left: 2%;
+	cursor: pointer;
+}
