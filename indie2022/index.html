@@ -210,6 +210,18 @@
 			if (indie2022points.features[i].properties["kategoria"] == el) {
 				const li = document.createElement("li");
 				li.innerText = indie2022points.features[i].properties["obiekt"];
+						
+				const item = document.createElement("i");
+				item.setAttribute("class", "fa fa-map-marker");
+				item.setAttribute("title", "przybliż");
+				li.appendChild(item);
+				
+				const geom = indie2022points.features[i].geometry;
+				
+				item.onclick = function () {
+					map.flyTo(L.latLng(geom.coordinates[1], geom.coordinates[0]), 15, {animate: false});
+				};
+				
 				ul = document.getElementById(el);
 				ul.appendChild(li);
 				};
