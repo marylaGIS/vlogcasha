@@ -217,9 +217,15 @@
 				li.appendChild(item);
 				
 				const geom = indie2022points.features[i].geometry;
+				const latLng = L.latLng(geom.coordinates[1], geom.coordinates[0])
 				
 				item.onclick = function () {
-					map.flyTo(L.latLng(geom.coordinates[1], geom.coordinates[0]), 15, {animate: false});
+					map.flyTo(latLng, 16, {animate: false});
+					
+					const popup = L.popup();
+					popup.setLatLng(latLng)
+					popup.setContent(indie2022points.features[i].properties["obiekt"])
+					popup.openOn(map);
 				};
 				
 				ul = document.getElementById(el);
