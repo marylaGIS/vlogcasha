@@ -205,6 +205,17 @@
 		document.getElementById("panel-vlogs-attractions").appendChild(li);
 	};
 	
+	const liVlogAttractions = document.querySelectorAll(".li-vlog-attractions");
+	
+	for (let el of liVlogAttractions) {
+		const btn = el.querySelector("button");
+		const list = el.querySelector(".vlog-attractions");
+		
+		btn.addEventListener("click", function() {
+			list.classList.toggle("vlog-attractions");
+		});
+	};
+	
 	// tab-2
 	const categoriesSet = new Set();
 	
