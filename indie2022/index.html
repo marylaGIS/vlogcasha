@@ -217,6 +217,23 @@
 				const li = document.createElement("li");
 				li.innerText = indie2022points.features[i].properties["obiekt"];
 				
+				const item = document.createElement("i");
+				item.setAttribute("class", "fa fa-map-marker");
+				item.setAttribute("title", "przybliż");
+				li.appendChild(item);
+				
+				const geom = indie2022points.features[i].geometry;
+				const latLng = L.latLng(geom.coordinates[1], geom.coordinates[0])
+				
+				item.onclick = function () {
+					map.flyTo(latLng, 16, {animate: false});
+					
+					const popup = L.popup();
+					popup.setLatLng(latLng)
+					popup.setContent(indie2022points.features[i].properties["obiekt"])
+					popup.openOn(map);
+				};
+				
 				ul.appendChild(li);
 			};
 		};
