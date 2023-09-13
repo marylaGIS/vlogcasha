@@ -33,3 +33,18 @@ ol#list-vlogs-yt > li {
 .vlog-attractions {
 	display: none;
 }
+
+button {
+	width: 100px;
+	background-color: white;
+	border-color: green;
+	border-width: 1.5px;
+	/* border: 1.5px solid green; */
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.li-vlog-attractions {
+	list-style-type: none;
+	margin-bottom: 5%;
+}
