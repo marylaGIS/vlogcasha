@@ -36,6 +36,8 @@
 
 	<div id="map">
 	
+		<i id="compass" class="fa fa-compass" title="wyśrodkuj mapę"></i>
+	
 		<div class="cash-socials">
 			<strong>Vlog Casha</strong>
 			<a href="https://www.youtube.com/@vlogcasha" target="_blank"><i class="fa fa-youtube"></i></a>
@@ -128,6 +130,7 @@
 		console.log(e.latlng.lng.toFixed(5) + ',', e.latlng.lat.toFixed(5));
 	});
 	
+	
 	const vlogsLegendDict = {};
 	
 	for (let i=1; i<=19; i++) {
@@ -200,6 +203,13 @@
 	};
 	
 	L.control.layers(baseLayers, overlays).addTo(map);
+	
+	
+	const compass = document.getElementById("compass");
+
+	compass.onclick = function() {
+		map.fitBounds(points.getBounds());
+	};
 	
 	
 	const sidepanel = L.control.sidepanel('sidepanel', {
